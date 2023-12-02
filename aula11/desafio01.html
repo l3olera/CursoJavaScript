@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passaporte</title>
+    <style>
+        body {
+            font: normal 18pt Arial;
+            background: purple;
+            color: white;
+        }
+        .questoes {
+            font: normal 15pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem vindo ao sistema de passaporte!</h1>
+    <div class="questoes">
+        <label for="nascionalidade">Nascionalidade: </label><input name="txtnasc" id="txtnasc" for="nascionalidade"><br>
+        <label for="destino">Destino: </label> <input name="txtdest" id="txtdest"for="destino"><br>
+        <input type="button" value="Mostrar" onclick="verificar()">
+
+        <div id="res">
+
+        </div>
+    </div>
+
+    <script>
+        function verificar(){
+            var nasc = window.document.querySelector('input#txtnasc').value;
+            var dest = window.document.querySelector('input#txtdest').value;
+            var res = window.document.querySelector('div#res');
+
+            res.innerHTML = `<p>Vivendo em <strong>${nasc}<strong><p>`
+            if(dest == nasc){
+                res.innerHTML += '<p>Você nasceu nesse país</p>';
+            }else {
+                res.innerHTML += '<p>Você é estrangeiro</p>';
+            }
+        }
+    </script>
+</body>
+</html>
